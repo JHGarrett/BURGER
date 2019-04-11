@@ -25,4 +25,6 @@ class Burger {
 }
 
 var burger = new Burger();
+
+// hi
 module.exports = burger;
