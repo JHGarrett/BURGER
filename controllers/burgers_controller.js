@@ -24,4 +24,4 @@ router.get("/", function(req, res){
 })
 
 
-module.export = router;
+module.exports = router;
