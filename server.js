@@ -1,5 +1,6 @@
 const express = require("express");
-const path = require("path")
+const path = require("path");
+var urlencode = require('urlencode');
 
 const app = express();
 var PORT = process.env.PORT || 8080;
@@ -14,10 +15,9 @@ const exphbs = require("express-handlebars")
 app.set("handlerbars", exphbs({defaultLayout:true}));
 app.set("view engine", "handlebars")
 
-const routes = require("./controller/burgers_controller.js")
+const routes = require("./controllers/burgers_controller.js")
 
-app.use(routes)
-
+app.use(routes);
 app.listen(PORT, function(){
     console.log("Listening on http://localhost:"+PORT)
 })
