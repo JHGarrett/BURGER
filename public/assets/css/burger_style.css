@@ -1,0 +1,43 @@
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif
+}
+
+#topTitle {
+    /* margin: auto 0;    */
+    margin-right: 6%;
+    margin-left: 10%;
+    margin-bottom: 3%;
+    margin-top: 2%;
+    text-align: center;
+}
+
+#burgersAvail {
+    float: left;
+    margin-right: 6%;
+    margin-left: 10%;
+}
+
+#devoured {
+    float: right;
+}
+
+li {
+    font-size: 20px;
+    list-style-type: none;
+}
+
+#addBurger {
+    clear: both;
+    /* margin-left: 35%;    */
+    margin-bottom: 3%;
+    margin-top: 2%;
+    text-align: center;
+}
+
+.form-control{
+    background-color: #ffebcc;
+}
+
+/* img{
+    overflow: hidden;
+} */

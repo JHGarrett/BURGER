@@ -1,38 +1,24 @@
-const connection = require("./connection.js")
+var connection = require("./connection.js");
 
-class Orm{
-    constructor(){
+var orm = {
+	all: function(tableInput, cb){
+		connection.query("SELECT * FROM "+tableInput+";", function(err, result){
+			if(err) throw err;
+			cb(result)			
+		})
+	},
+	update: function(tableInput, condition, cb){		
+		connection.query("UPDATE "+tableInput+" SET devoured = true WHERE id = " +condition+";", function(err, result){
+			if(err)throw err;
+			cb(result);
+		})
+	},
+	create: function(tableInput,val,cb){
+		connection.query("INSERT INTO "+tableInput+" (burger_name) VALUES ('"+val+"');", function(err,result){
+			if(err)throw err;
+			cb(result);
+		})
+	}	
+};
 
-    }
-
-    selectAll(table, cb){
-        var query = "SELECT * FROM ??"
-        connection.query(query, [table], function(err, data){
-            if(err){throw err}
-            cb(data)
-        })
-
-    }
-
-    insertOne(table, col, val, cb){
-        var query = "INSERT INTO ?? (??) VALUES (?)";
-        connection.query(query, [table, col, val], function(err, res){
-            if(err) throw err;
-            cb(res);
-        })
-        
-    }
-
-    updateOne(table, col, val, id, cb){
-        var query = "UPDATE ?? SET ?? = ? WHERE id = ?";
-        connection.query(query, [table, col, val, id], function(err, res){
-            if (err) throw err;
-            cb(res);
-        })
-
-    }
-
-}
-
-const orm = new Orm()
 module.exports = orm;
